@@ -15,6 +15,7 @@ class Race:
 
 class GameTransfomer(lark.Transformer):
     string = lambda x, y: y[0][1:-1]
+    number = lambda x, y: int(y[0])
     class_ = Class_
     race = Race
 
