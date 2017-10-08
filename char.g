@@ -1,7 +1,7 @@
 ?game: mod+
 
 ?mod: class_ requirements? bonuses?
-	| race requirements? bonuses?
+    | race requirements? bonuses?
 
 class_: "class" string
 race: "race" string
@@ -12,16 +12,16 @@ bonuses: "bonuses" (stat number)+
 expr: stat comp number
 
 comp: ">" -> gt
-	| "<" -> lt
-	| ">=" -> gte
-	| "<=" -> lte
+    | "<" -> lt
+    | ">=" -> gte
+    | "<=" -> lte
 
 stat: "int" -> int_
-	| "wis" -> wis_
-	| "dex" -> dex_
-	| "con" -> con_
-	| "cha" -> cha_
-	| "str" -> str_
+    | "wis" -> wis_
+    | "dex" -> dex_
+    | "con" -> con_
+    | "cha" -> cha_
+    | "str" -> str_
 
 ?string: ESCAPED_STRING
 ?number: SIGNED_NUMBER
