@@ -6,12 +6,17 @@ def unpack(m, values):
 
 class Class_:
     def __init__(self, values):
-        name, *buckets = values
+        self.name, *buckets = values
+
+    def __str__(self):
+        return f'Class: {self.name}'
 
 class Race:
     def __init__(self, values):
-        name, *buckets = values
+        self.name, *buckets = values
 
+    def __str__(self):
+        return f'Race: {self.name}'
 
 class GameTransfomer(lark.Transformer):
     string = lambda x, y: y[0][1:-1]
