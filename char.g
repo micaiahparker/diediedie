@@ -26,7 +26,11 @@ stat: "int" -> int_
 ?string: ESCAPED_STRING
 ?number: SIGNED_NUMBER
 
+COMMENT: /\#[^\n]*/
+
 %import common.SIGNED_NUMBER
 %import common.ESCAPED_STRING
+%import common.WORD
 %import common.WS
 %ignore WS
+%ignore COMMENT

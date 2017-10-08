@@ -4,11 +4,11 @@ class "Fighter"
 	bonuses
 		cha -1
 
-class "Thief"
+class "Thief" # thief class
 	requirements
-		dex>11
-		str<17
-		
+		dex > 11
+		str < 17
+
 race "Human"
 	bonuses
 		int 1

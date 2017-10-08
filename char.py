@@ -24,4 +24,4 @@ with open('char.g') as fd:
 if __name__ == "__main__":   
     with open('example.game') as fd:
         tree = parser.parse(fd.read())
-        print(tree)
+        print(tree.pretty())
