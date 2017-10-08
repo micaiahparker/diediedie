@@ -1,0 +1,30 @@
+{
+  "classes": [
+    {
+      "name": "Fighter"
+    },
+    {
+      "name": "Magic-User"
+    },
+    {
+      "name": "Cleric"
+    },
+    {
+      "name": "Thief"
+    }
+  ],
+  "races": [
+    {
+      "name": "Dwarf"
+    },
+    {
+      "name": "Elf"
+    },
+    {
+      "name": "Halfling"
+    },
+    {
+      "name": "Human"
+    }
+  ]
+}
