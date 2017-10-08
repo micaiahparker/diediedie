@@ -1,9 +1,10 @@
-?start: mod+
+?game: mod+
 
-mod: type string requirements? bonuses?
+?mod: class_ requirements? bonuses?
+	| race requirements? bonuses?
 
-type: "class" -> cls
-	| "race" -> race
+class_: "class" string
+race: "race" string
 
 requirements: "requirements" expr+
 bonuses: "bonuses" (stat number)+
@@ -15,15 +16,15 @@ comp: ">" -> gt
 	| ">=" -> gte
 	| "<=" -> lte
 
-stat: "int" -> int
-	| "wis" -> wis
-	| "dex" -> dex
-	| "con" -> con
-	| "cha" -> cha
-	| "str" -> str
+stat: "int" -> int_
+	| "wis" -> wis_
+	| "dex" -> dex_
+	| "con" -> con_
+	| "cha" -> cha_
+	| "str" -> str_
 
-string: ESCAPED_STRING
-number: SIGNED_NUMBER
+?string: ESCAPED_STRING
+?number: SIGNED_NUMBER
 
 %import common.SIGNED_NUMBER
 %import common.ESCAPED_STRING

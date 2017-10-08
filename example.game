@@ -1,12 +1,16 @@
 class "Fighter"
 	requirements
-		str > 12
+		str>10
+	bonuses
+		cha -1
 
+class "Thief"
+	requirements
+		dex>11
+		str<17
+		
 race "Human"
 	bonuses
-		str 1
 		int 1
+		str 1
 		con 1
-		cha 1
-		wis 1
-		dex 1
