@@ -7,6 +7,11 @@ an attempt to see if a large number of games can be defined with a simple number
 
 # todo
 
+* classes
+* races
+* leveling
+* custom stats
 * characters
 * items
-* roll modifiers
+* spells / feats
+* ~~roll modifiers~~
