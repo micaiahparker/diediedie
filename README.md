@@ -5,7 +5,7 @@ modeling language to represent table top role playing games
 * the game has stats, characters, and items
 * the game uses dice
 
-# todo
+## todo
 
 * classes
 * races
