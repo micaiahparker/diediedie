@@ -1,5 +1,5 @@
 # diediedie
-an attempt to see if a large number of games can be defined with a simple number of assumtions. 
+modeling language to represent table top role playing games 
 
 ## assumptions
 * the game has stats, characters, and items
