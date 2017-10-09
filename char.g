@@ -1,34 +1,27 @@
-?game: mod+
+?game: stat+
 
-?mod: class_ requirements? bonuses?
-    | race requirements? bonuses?
+stat: "stat" string roll pairs  
+pairs: "{" pair* "}"
+pair: string ":" string
 
-class_: "class" string
-race: "race" string
+roll: number "d" number colmod? mod?
+mod: op number
+colmod: colop number
 
-requirements: "requirements" expr+
-bonuses: "bonuses" (stat number)+
+op:   "+" -> add_
+    | "-" -> sub_
+    | "*" -> mul_
+    | "/" -> div_
 
-expr: stat comp number
+colop: "l" -> min_
+      | "m" -> max_
 
-comp: ">" -> gt
-    | "<" -> lt
-    | ">=" -> gte
-    | "<=" -> lte
-
-stat: "int" -> int_
-    | "wis" -> wis_
-    | "dex" -> dex_
-    | "con" -> con_
-    | "cha" -> cha_
-    | "str" -> str_
-
-?string: ESCAPED_STRING
-?number: SIGNED_NUMBER
+string: ESCAPED_STRING
+number: INT
 
 COMMENT: /\#[^\n]*/
 
-%import common.SIGNED_NUMBER
+%import common.INT
 %import common.ESCAPED_STRING
 %import common.WORD
 %import common.WS

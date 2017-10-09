@@ -1,28 +1,48 @@
-from functools import wraps
+from functools import wraps, partial
+from operator import add, sub, mul
+from heapq import nlargest, nsmallest
+from random import randint
+
 import lark
+
 
 def unpack(m, values):
     return [values[i] if i < len(values) else None for i in range(m)]
 
-class Class_:
+class Modifier:
     def __init__(self, values):
-        self.name, *buckets = values
+        self.op, self.value = unpack(2, values)
+        self.op = partial(self.op, self.value)
 
-    def __str__(self):
-        return f'Class: {self.name}'
+    def __call__(self, value):
+        return self.op(value)
 
-class Race:
+class Roll:
     def __init__(self, values):
-        self.name, *buckets = values
+        self.times, self.size, self.colmod, self.mod = unpack(4, values)
 
-    def __str__(self):
-        return f'Race: {self.name}'
+        if not self.mod:
+            self.mod = lambda x: x
+
+        if not self.colmod:
+            self.colmod = lambda x: x
+
+    def __call__(self):
+        return self.mod(sum(self.colmod([randint(1,self.size) for _ in range(self.times)])))
+
 
 class GameTransfomer(lark.Transformer):
     string = lambda x, y: y[0][1:-1]
     number = lambda x, y: int(y[0])
-    class_ = Class_
-    race = Race
+    min_ = lambda x, y: nsmallest
+    max_ = lambda x, y: nlargest
+    add_ = lambda x, y: add
+    sub_ = lambda x, y: sub
+    mul_ = lambda x, y: mul
+    div_ = lambda x, y: divmod
+    mod = Modifier
+    colmod = Modifier
+    roll = Roll
 
 with open('char.g') as fd:
     parser = lark.Lark(fd.read(), start="game", parser='lalr', transformer=GameTransfomer())

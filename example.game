@@ -1,16 +1,14 @@
-class "Fighter"
-	requirements
-		str>10
-	bonuses
-		cha -1
+stat "scores" 4d6m3 {
+    "str": "Strength"
+    "int": "Intelligence"
+    "con": "Consitution"
+    "dex": "Dexterity"
+    "con": "Consitution"
+    "cha": "Charisma"
+} 
 
-class "Thief" # thief class
-	requirements
-		dex > 11
-		str < 17
-
-race "Human"
-	bonuses
-		int 1
-		str 1
-		con 1
+stat "saves" 1d20+1 {
+    "pet": "Petra"
+    "wand": "Magic Wand"
+    "breath": "Dragon Breath"
+} 
